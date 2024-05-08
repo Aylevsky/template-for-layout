@@ -1,0 +1,38 @@
+:root {
+  // Fonts
+  --fonts__main: "Inter", "sans-serif";
+}
+
+.main {
+  &_light {
+
+  }
+
+  &_dark {
+
+  }
+}
+
+$media: (
+  sm: (
+    width: 360px,
+    container: 100%,
+    padding: 16px,
+  ),
+  md: (
+    width: 768px,
+    container: 100%,
+    padding: 16px,
+  ),
+  lg: (
+    width: 1024px + (40px * 2),
+    container: 944px + (40px * 2),
+    padding: 40px,
+  ),
+  xl: (
+    width: 1200px + (40px * 2),
+    container: 1120px + (40px * 2),
+    padding: 40px,
+  ),
+);
+

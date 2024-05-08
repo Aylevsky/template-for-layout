@@ -1,0 +1,13 @@
+include ../../blocks/common/head/head.pug
+include ../../blocks/common/header/header.pug
+include ../../blocks/common/footer/footer.pug
+
+doctype html
+html(lang="ru")
+  +head("Template")
+  body
+    //+header()
+    main.main.index
+
+    //+footer()
+    include ../../blocks/common/footer-includes/footer-includes.pug

@@ -1,0 +1,99 @@
+@use "sass:math";
+
+// Миксин который позволяет создавать отзывчивые свойства.
+// Их значение меняется в зависимости от размера экрана
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $maxWidth: strip-unit(map-get($media, xl, width));
+  $maxWidthContainer: strip-unit(map-get($media, xl, container));
+  $addSize: $startSize - $minSize;
+  $mobileWidth: strip-unit(map-get($media, sm, width));
+
+  @if $type ==1 {
+    // Max
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$mobileWidth + px}) / #{$maxWidthContainer - $mobileWidth}));
+    }
+  }
+
+  @else if $type ==2 {
+    // Min
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$mobileWidth + px}) / #{$maxWidth - $mobileWidth}));
+    }
+  }
+
+  @else {
+    // Всегда
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$mobileWidth + px}) / #{$maxWidth - $mobileWidth}));
+  }
+}
+
+$sm: map-get($media, sm, width);
+$md: map-get($media, md, width);
+$lg: map-get($media, lg, width);
+$xl: map-get($media, xl, width);
+
+@mixin media($minmax, $media) {
+  @if $media =="sm" {
+    @media (#{$minmax}-width: $sm) {
+      @content;
+    }
+  }
+
+  @else if $media =="md" {
+    @media (#{$minmax}-width: $md) {
+      @content;
+    }
+  }
+
+  @else if $media =="lg" {
+    @media (#{$minmax}-width: $lg) {
+      @content;
+    }
+  }
+
+  @else if $media =="xl" {
+    @media (#{$minmax}-width: $xl) {
+      @content;
+    }
+  }
+}
+
+/*
+  * LINE HEIGHT
+*/
+@mixin line-height($font-size, $line-height) {
+  $lineHeightInPercent: math.div($line-height, math.div($font-size, 100));
+  line-height: #{$lineHeightInPercent + "%"};
+}
+
+/*
+  * SIZE
+*/
+@mixin a_size($w, $w2, $h: "none", $h2: "none") {
+  @if ($h =="none") {
+    @include adaptiv-value(width, $w, $w2, 1);
+    @include adaptiv-value(height, $w, $w2, 1);
+  }
+
+  @else {
+    @include adaptiv-value(width, $w, $w2, 1);
+    @include adaptiv-value(height, $h, $h2, 1);
+  }
+}
+
+@mixin size($w, $h: "none") {
+  @if ($h =="none") {
+    width: $w;
+    height: $w;
+  }
+
+  @else {
+    width: $w;
+    height: $h;
+  }
+}

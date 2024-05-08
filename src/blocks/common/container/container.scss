@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  flex-direction: column;
+
+  //* Адаптисность
+  /* 
+  // Extra small
+  @media (max-width: map-get($media, md, width)) {
+    width: map-get($media, sm, container);
+    padding: 0 map-get($media, sm, padding) !important;
+  }
+
+  // Medium
+  @media (min-width: map-get($media, md, width)) {
+    width: map-get($media, md, container);
+    padding: 0 map-get($media, md, padding);
+  }
+
+  // Large
+  @media (min-width: map-get($media, lg, width)) {
+    width: map-get($media, lg, container);
+    padding: 0 map-get($media, lg, padding);
+  }
+
+  // Extra large
+  @media (min-width: map-get($media, xl, width)) {
+    width: map-get($media, xl, container);
+    padding: 0 map-get($media, xl, padding);
+  }
+  */
+
+  //* Отзывчивость
+  @media (max-width: map-get($media, xl, width)) {
+    width: map-get($media, md, container);
+    padding: 0 map-get($media, md, padding);
+  }
+
+  @media (min-width: map-get($media, xl, width)) {
+    width: map-get($media, xl, container);
+    padding: 0 map-get($media, xl, padding);
+  }
+}

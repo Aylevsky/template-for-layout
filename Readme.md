@@ -13,8 +13,6 @@ Version of template: v4
 
 Link on template: [https://github.com/Aylevsky/template-for-layout](https://github.com/Aylevsky/template-for-layout)
 
----
-
 ## Template features
 
 1. The template was designed for use on Unix-like operating systems (Linux, MacOS). When used on Windows there may be problems.

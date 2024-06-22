@@ -28,7 +28,7 @@ export const path = {
     html: `${srcFolder}/pages/**/*.html`,
     pug: `${srcFolder}/pages/**/*.pug`,
     scss: [`${srcFolder}/pages/**/*.scss`, `${srcFolder}/styles/*.scss`],
-    svgicons: `${srcFolder}/svgicons/*.svg`,
+    svgicons: `${srcFolder}/svgicons/**/*.svg`,
     js: `${srcFolder}/scripts/app.js`,
     images: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp}`,
     blocksImages: [`${srcFolder}/blocks/common/**/*.{jpg,jpeg,png,gif,webp}`, `${srcFolder}/blocks/pages/**/*.{jpg,jpeg,png,gif,webp}`],

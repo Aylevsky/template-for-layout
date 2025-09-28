@@ -6,14 +6,14 @@ import { plugins } from '../config/plugins.js';
 import { filePaths } from '../config/paths.js';
 import { logger } from '../config/logger.js';
 
-export const images = (isBuild, serverInstance) => {
-  return gulp.src(filePaths.src.images)
+export const componentsImages = (isBuild, serverInstance) => {
+  return gulp.src(filePaths.watch.componentsImages.images)
     .pipe(logger.handleError('IMAGES'))
-    .pipe(plugins.newer(filePaths.build.images))
+    .pipe(plugins.newer(filePaths.build.componentsImages.images))
     .pipe(plugins.if(isBuild, webp()))
-    .pipe(plugins.if(isBuild, gulp.dest(filePaths.build.images)))
-    .pipe(plugins.if(isBuild, gulp.src(filePaths.src.images)))
-    .pipe(plugins.if(isBuild, plugins.newer(filePaths.build.images)))
+    .pipe(plugins.if(isBuild, gulp.dest(filePaths.build.componentsImages.images)))
+    .pipe(plugins.if(isBuild, gulp.src(filePaths.watch.componentsImages.images)))
+    .pipe(plugins.if(isBuild, plugins.newer(filePaths.build.componentsImages.images)))
     .pipe(
       plugins.if(
         isBuild,
@@ -25,6 +25,6 @@ export const images = (isBuild, serverInstance) => {
         }),
       ),
     )
-    .pipe(gulp.dest(filePaths.build.images))
+    .pipe(gulp.dest(filePaths.build.componentsImages.images))
     .pipe(serverInstance.stream());
 };

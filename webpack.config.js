@@ -1,5 +1,5 @@
 import { resolve, join } from 'node:path';
-import { readDir } from './gulp/config/read-dir.js';
+import { readDir } from './gulp/config/readDir.js';
 
 export const webpackConfig = async (isMode) => {
 	const paths = {

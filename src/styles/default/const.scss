@@ -1,56 +1,54 @@
 /**
- * Файл с CSS и SCSS переменными.
+ * CSS и SCSS переменные.
  */
 
 :root {
-	// Fonts
-	--fonts__main: "Inter", "sans-serif";
-}
+	--fonts__main: "NunitoSans", "sans-serif";
+	--fonts__headline: "Graphik", "sans-serif";
 
-.main {
-	// Переменные светлой темы
-	&_light {
-	}
+	--colors__main: #5454d4;
+	--colors__additional: #fff;
+	--colors__main-background: #19191b;
+	--colors__additional-background: rgba(30, 30, 32, 0.5);
 
-	// Переменные тёмной темы
-	&_dark {
-	}
+	--typography__main: #fff;
+	--typography__additional: rgba(255, 255, 255, 0.7);
 }
 
 $media: (
 	sm: (
 		// Ширина экрана на которой срабатывает медиазапрос
-		width: 360px,
+		width: 375px,
 
 		// Ширина контейнера (.container) для данной ширины экрана
 		container: 100%,
 
 		// Отступы внутрий контейнера (.container)
-		padding: 16px,
+		padding: 24px,
 	),
 	md: (
 		// Ширина экрана на которой срабатывает медиазапрос
-		width: 768px,
+		width: 868px,
 
-		//// Ширина контейнера (.container) для данной ширины экрана
-		// container: 100%,
-		//// Отступы внутрий контейнера (.container)
-		// padding: 16px,,
+		// Ширина контейнера (.container) для данной ширины экрана
+		container: 100%,
+		// Отступы внутрий контейнера (.container)
+		padding: 24px,
 	),
 	lg: (
 		// Ширина экрана на которой срабатывает медиазапрос
-		width: 1024px + (40px * 2),
+		width: 1024px + (60px * 2),
 		//// Ширина контейнера (.container) для данной ширины экрана
 		// container: 944px + (40px * 2),
 		//// Отступы внутрий контейнера (.container)
-		// padding: 40px,,
+		// padding: 40px,,,,,,,,,
 	),
 	xl: (
 		// Ширина экрана на которой срабатывает медиазапрос
-		width: 1200px + (40px * 2),
+		width: 1200px + (60px * 2),
 		// Ширина контейнера (.container) для данной ширины экрана
-		container: 1120px + (40px * 2),
+		container: 1200px + (60px * 2),
 		// Отступы внутрий контейнера (.container)
-		padding: 40px,
+		padding: 60px,
 	),
 );

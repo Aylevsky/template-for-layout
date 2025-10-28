@@ -1,5 +1,3 @@
-/*****/
-
 /**
  * DEFAULT
 **/
@@ -12,4 +10,17 @@
 /**
  * BLOCKS
 **/
+@import "../components/base/**/*.scss";
 @import "../components/common/**/*.scss";
+
+/**
+ * Plyr // npm install plyr;
+**/
+//@import "../../node_modules/plyr/src/sass/plyr.scss";
+
+/**
+ * Swiper // npm install swiper;
+**/
+// @import "../../node_modules/swiper/swiper.scss";
+// @import "../../node_modules/swiper/modules/navigation/navigation.scss";
+// @import "../../node_modules/swiper/modules/pagination/pagination.scss";

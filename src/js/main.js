@@ -14,15 +14,13 @@
 /*
   * Swiper
 */
-/* Command: npm install swiper
+/* 
+  - Command: npm install swiper
+  - В main.scss нужно раскомментировать стили
 
 import Swiper from 'swiper';
 import Navigation from '../../node_modules/swiper/modules/navigation/navigation.js';
 import Pagination from '../../node_modules/swiper/modules/pagination/pagination.js';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination],
@@ -45,5 +43,5 @@ window.addEventListener('load', function () {
 })
 */
 
-// import * as functions from "./modules/functions.js";
-// functions.isWebp();
+import * as functions from "./modules/functions.js";
+functions.isWebp();

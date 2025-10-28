@@ -39,18 +39,11 @@ export const scss = (isBuild, serverInstance) => {
     // Путь к картинкам
     .pipe(plugins.replace(/@img\//g, '../../../images/'))
 
-    // Сокращение миксина размера
-    .pipe(plugins.replace('@size', `@include size`))
-    .pipe(plugins.replace('@ad-size', `@include ad-size`))
-    .pipe(plugins.replace('@line-height', `@include line-height`))
-    .pipe(plugins.replace('@ad', `@include adaptiv-value`))
-    .pipe(plugins.replace('@med', `@include media`))
-
     .pipe(plugins.if(isBuild, webpCss(webpConfig)))
     .pipe(plugins.if(isBuild, postcss([
       autoprefixer(),
       postcssPresetEnv(),
-      postcssGroupMedia({ sort: 'desktop-first' }),
+      //postcssGroupMedia({ sort: 'desktop-first' }),
     ])))
     .pipe(gulp.dest(filePaths.build.css))
     .pipe(plugins.if(isBuild, cleanCss()))

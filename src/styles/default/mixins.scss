@@ -34,20 +34,20 @@
 /**
   * Сокращение для медиазапросов.
 */
-@mixin media($minmax, $media) {
-	@if $media == "sm" {
+@mixin media($minmax, $mediaQuery) {
+	@if $mediaQuery == "sm" {
 		@media (#{$minmax}-width: map-get($media, "sm", "width")) {
 			@content;
 		}
-	} @else if $media == "md" {
+	} @else if $mediaQuery == "md" {
 		@media (#{$minmax}-width: map-get($media, "md", "width")) {
 			@content;
 		}
-	} @else if $media == "lg" {
+	} @else if $mediaQuery == "lg" {
 		@media (#{$minmax}-width: map-get($media, "lg", "width")) {
 			@content;
 		}
-	} @else if $media == "xl" {
+	} @else if $mediaQuery == "xl" {
 		@media (#{$minmax}-width: map-get($media, "xl", "width")) {
 			@content;
 		}

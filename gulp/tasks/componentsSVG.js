@@ -6,7 +6,7 @@ import { filePaths } from '../config/paths.js';
 import { logger } from '../config/logger.js';
 
 export const componentsSVG = (isBuild, serverInstance) => {
-  return gulp.src(filePaths.watch.componentsImages.svg)
+  return gulp.src(filePaths.watch.componentsImages.svg, { encoding: false })
     .pipe(logger.handleError('IMAGES'))
     .pipe(plugins.newer(filePaths.build.componentsImages.svg))
     .pipe(plugins.if(isBuild, webp()))

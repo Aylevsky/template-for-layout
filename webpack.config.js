@@ -2,36 +2,42 @@ import { resolve, join } from 'node:path';
 import { readDir } from './gulp/config/readDir.js';
 
 export const webpackConfig = async (isMode) => {
-	const paths = {
-		src: resolve('src'),
-		build: resolve('dist'),
-	};
+  const paths = {
+    src: resolve('src'),
+    build: resolve('dist'),
+  };
 
-	const context = join(paths.src, 'js');
+  const context = join(paths.src, 'js');
 
-	return {
-		context,
-		entry: await readDir(context),
-		mode: isMode ? 'development' : 'production',
-		output: {
-			path: join(paths.build, 'js'),
-			filename: '[name].min.js',
-			publicPath: '/',
-		},
-		module: {
-			rules: [
-				{
-					test: /\.m?js$/,
-					exclude: /node_modules/,
-					use: {
-						loader: 'esbuild-loader',
-						options: { target: 'ES6' },
-					},
-					resolve: {
-						fullySpecified: false,
-					},
-				},
-			],
-		},
-	};
+  return {
+    context,
+    entry: await readDir(context),
+    mode: isMode ? 'development' : 'production',
+    output: {
+      path: join(paths.build, 'js'),
+      filename: '[name].min.js',
+      publicPath: '/',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'esbuild-loader',
+            options: { target: 'ES6' },
+          },
+          resolve: {
+            fullySpecified: false,
+          },
+        },
+        {
+          test: /\.m?js$/, // Цель для файлов JavaScript
+          resolve: {
+            fullySpecified: false, // Отключает требование указывать полное расширение
+          },
+        },
+      ],
+    },
+  };
 };

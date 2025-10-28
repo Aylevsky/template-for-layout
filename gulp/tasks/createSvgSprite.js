@@ -7,7 +7,7 @@ import fs from 'fs';
 
 export const createSvgSprite = () => {
   if (fs.existsSync(`${filePaths.srcFolder}/icons`)) {
-    return gulp.src(filePaths.src.svgIcons, {})
+    return gulp.src(filePaths.src.svgIcons, { encoding: false })
       .pipe(logger.handleError('COPY ROOT FILES'))
       .pipe(
         svgSprite({

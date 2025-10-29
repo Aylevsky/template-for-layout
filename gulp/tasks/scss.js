@@ -28,7 +28,12 @@ export const scss = (isBuild, serverInstance) => {
   };
 
   return gulp.src(filePaths.src.scss)
-    .pipe(logger.handleError('SCSS'))
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log("\x1b[31m" + err.message + "\x1b[0m");
+        this.emit('end');
+      }
+    }))
     .pipe(sassGlob())
     .pipe(plugins.if(!isBuild, sourcemaps.init()))
     .pipe(sass({ outputStyle: 'expanded' }, null))

@@ -41,16 +41,16 @@ const handleComponentsSVG = componentsSVG.bind(null, isBuild, browserSyncInstanc
  * Наблюдатель за изменениями в файлах
  */
 function watcher() {
-  gulp.watch(filePaths.watch.fonts, handleCopyFonts);
-  gulp.watch(filePaths.watch.static, copy);
-  gulp.watch(filePaths.watch.html, handleHTML);
-  gulp.watch(filePaths.watch.pug, handlePUG);
   gulp.watch(filePaths.watch.scss, handleSCSS);
+  gulp.watch(filePaths.watch.pug, handlePUG);
+  gulp.watch(filePaths.watch.html, handleHTML);
   gulp.watch(filePaths.watch.js, handleJS);
   gulp.watch(filePaths.watch.images, handleImages);
   gulp.watch(filePaths.watch.svg, handleSvg);
   gulp.watch(filePaths.watch.componentsImages.images, handleComponentsImages);
   gulp.watch(filePaths.watch.componentsImages.svg, handleComponentsSVG);
+  gulp.watch(filePaths.watch.static, copy);
+  gulp.watch(filePaths.watch.fonts, handleCopyFonts);
 }
 
 /**
